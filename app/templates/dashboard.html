@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <h3 class="fw-bold mb-4 text-dark-green">Admin Dashboard</h3>
+    
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 bg-primary text-white">
+                <div class="card-body p-4 text-center">
+                    <h5 class="fw-bold">Total Students</h5>
+                    <h2 class="display-4 fw-bold mb-0">{{ stats.total_students }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 bg-success text-white">
+                <div class="card-body p-4 text-center">
+                    <h5 class="fw-bold">Eligible for Placement</h5>
+                    <h2 class="display-4 fw-bold mb-0">{{ stats.eligible }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-4 bg-warning text-dark">
+                <div class="card-body p-4 text-center">
+                    <h5 class="fw-bold">Needs Improvement</h5>
+                    <h2 class="display-4 fw-bold mb-0">{{ stats.not_eligible }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">Batch Distribution</h5>
+                    <canvas id="batchChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">Recent Evaluations</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>85</td>
+                                    <td><span class="badge bg-success rounded-pill">Eligible</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>92</td>
+                                    <td><span class="badge bg-success rounded-pill">Eligible</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Bob Wilson</td>
+                                    <td>65</td>
+                                    <td><span class="badge bg-warning text-dark rounded-pill">Not Eligible</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var ctx = document.getElementById('batchChart').getContext('2d');
+    var batchChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Batch A', 'Batch B', 'Batch C'],
+            datasets: [{
+                data: [{{ stats.batch_a }}, {{ stats.batch_b }}, {{ stats.batch_c }}],
+                backgroundColor: [
+                    '#0d4a3e', // dark green
+                    '#198754', // success
+                    '#ffc107'  // warning
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutout: '70%',
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

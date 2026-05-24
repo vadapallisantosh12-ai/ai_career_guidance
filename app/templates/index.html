@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-dark-green mb-3">AI-Powered Career Guidance System</h1>
+            <p class="lead text-muted mb-4">Discover your optimal career path using advanced Machine Learning. We analyze your academic performance, soft skills, and resume to provide personalized domain recommendations and placement probabilities.</p>
+            <div class="d-flex gap-3">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('student.evaluate') }}" class="btn btn-dark-green btn-lg px-4 rounded-pill fw-bold">Evaluate Profile</a>
+                <a href="{{ url_for('student.upload_page') }}" class="btn btn-outline-secondary btn-lg px-4 rounded-pill fw-bold">Analyze Resume</a>
+                {% else %}
+                <a href="{{ url_for('auth.register') }}" class="btn btn-dark-green btn-lg px-4 rounded-pill fw-bold">Get Started</a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-lg px-4 rounded-pill fw-bold">Login</a>
+                {% endif %}
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-4">
+                    <h3 class="fw-bold text-dark-green">6+</h3>
+                    <p class="text-muted small">ML Models</p>
+                </div>
+                <div class="col-4">
+                    <h3 class="fw-bold text-dark-green">100%</h3>
+                    <p class="text-muted small">Data-Driven</p>
+                </div>
+                <div class="col-4">
+                    <h3 class="fw-bold text-dark-green">8</h3>
+                    <p class="text-muted small">Career Domains</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center mt-5 mt-lg-0">
+            <div class="bg-light rounded-circle p-5 d-inline-block shadow-sm" style="width: 400px; height: 400px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-brain text-dark-green" style="font-size: 150px;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 mt-5">
+    <h2 class="text-center fw-bold text-dark-green mb-5">How It Works</h2>
+    <div class="row g-4">
+        <div class="col-md-4 text-center">
+            <div class="icon-circle mx-auto mb-3" style="width: 80px; height: 80px; background-color: #e6f0ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-user-graduate fs-2 text-primary"></i>
+            </div>
+            <h5 class="fw-bold">1. Input Details</h5>
+            <p class="text-muted">Provide your academic scores, attendance, and behavioral metrics.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="icon-circle mx-auto mb-3" style="width: 80px; height: 80px; background-color: #e6ffe6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-file-upload fs-2 text-success"></i>
+            </div>
+            <h5 class="fw-bold">2. Upload Resume</h5>
+            <p class="text-muted">Our system parses your resume to extract key skills and technologies.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="icon-circle mx-auto mb-3" style="width: 80px; height: 80px; background-color: #fff0e6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-chart-pie fs-2 text-warning"></i>
+            </div>
+            <h5 class="fw-bold">3. Get Predictions</h5>
+            <p class="text-muted">Receive AI-generated placement probabilities and career recommendations.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

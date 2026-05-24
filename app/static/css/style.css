@@ -1,0 +1,146 @@
+:root {
+    --primary-color: #0d4a3e; /* Dark green from login image */
+    --primary-hover: #09382f;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.bg-dark-green {
+    background-color: var(--primary-color) !important;
+}
+
+.text-dark-green {
+    color: var(--primary-color) !important;
+}
+
+.btn-dark-green {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-dark-green:hover {
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+/* Login Page Styles */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.login-container {
+    background-color: var(--primary-color);
+    padding: 3rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-box {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.input-group-text {
+    border-color: #ced4da;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #6c757d;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.btn-social {
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+.btn-social:hover {
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+/* Upload Page Styles */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #e6f0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Results Page Styles */
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 8px solid #5c6bc0;
+    border-left-color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+}
+.score-circle > * {
+    transform: rotate(-45deg);
+}
+
+.score-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3f51b5;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+.badge.bg-light.text-primary {
+    color: #5c6bc0 !important;
+    border-color: #c5cae9 !important;
+    background-color: #f8f9ff !important;
+}

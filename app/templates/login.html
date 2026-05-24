@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login-box">
+            <h2 class="text-center mb-4 text-dark-green fw-bold">Login</h2>
+            <form method="POST" action="{{ url_for('auth.login') }}">
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-white border-end-0"><i class="fas fa-user text-muted"></i></span>
+                    <input type="text" class="form-control border-start-0" id="username" name="username" placeholder="username" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-white border-end-0"><i class="fas fa-lock text-muted"></i></span>
+                    <input type="password" class="form-control border-start-0" id="password" name="password" placeholder="password" required>
+                </div>
+                <button type="submit" class="btn btn-dark-green w-100 rounded-pill py-2 fw-semibold">Login</button>
+                <div class="text-start mt-3">
+                    <a href="#" class="text-muted text-decoration-none small">forgot password <span class="text-decoration-underline">click here</span></a>
+                </div>
+                
+                <div class="divider mt-4 mb-3">
+                    <span>Or</span>
+                </div>
+                
+                <div class="social-login d-flex justify-content-center gap-2 mb-4">
+                    <button type="button" class="btn btn-social"><i class="fab fa-facebook-f"></i></button>
+                    <button type="button" class="btn btn-social"><i class="fab fa-google"></i></button>
+                    <button type="button" class="btn btn-social"><i class="fab fa-linkedin-in"></i></button>
+                    <button type="button" class="btn btn-social"><i class="fab fa-twitter"></i></button>
+                    <button type="button" class="btn btn-social"><i class="fab fa-instagram"></i></button>
+                </div>
+                
+                <div class="text-center text-muted small">
+                    you don't have an account <a href="{{ url_for('auth.register') }}" class="text-dark-green text-decoration-underline">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

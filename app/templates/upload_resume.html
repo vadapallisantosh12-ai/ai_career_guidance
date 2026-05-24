@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <div class="icon-circle mx-auto mb-3">
+                            <i class="fas fa-file-alt text-primary fs-3"></i>
+                        </div>
+                        <h3 class="fw-bold">Upload Your Resume</h3>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('student.evaluate') }}" enctype="multipart/form-data">
+                        <!-- Hidden inputs for dummy evaluation data since we just separated the upload page -->
+                        <input type="hidden" name="coding_skills" value="85">
+                        <input type="hidden" name="aptitude_score" value="75">
+                        <input type="hidden" name="attendance" value="90">
+                        <input type="hidden" name="communication" value="80">
+                        <input type="hidden" name="behavior" value="95">
+                        <input type="hidden" name="cgpa" value="8.5">
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted small">Your Name</label>
+                            <input type="text" class="form-control bg-light" placeholder="e.g. Priya Sharma">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted small">Target Career Domain</label>
+                            <select class="form-select bg-light">
+                                <option>Data Engineer</option>
+                                <option>Software Developer</option>
+                                <option>Data Scientist</option>
+                                <option>AI Engineer</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted small">Resume File (PDF or TXT)</label>
+                            <input class="form-control" type="file" id="resume" name="resume" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-dark-green w-100 py-3 fw-bold rounded-3">
+                            <i class="fas fa-cog me-2"></i> Analyse Resume
+                        </button>
+                    </form>
+                    
+                    <div class="text-center mt-5 text-muted small">
+                        AI Resume Analysis & Career Guidance System © 2024
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

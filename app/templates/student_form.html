@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0 rounded-4">
+                <div class="card-header bg-dark-green text-white rounded-top-4 py-3">
+                    <h4 class="mb-0 text-center fw-bold">Student Evaluation Form</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form method="POST" action="{{ url_for('student.evaluate') }}" enctype="multipart/form-data">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">Coding Skills (0-100)</label>
+                                <input type="number" class="form-control" name="coding_skills" required min="0" max="100" value="75">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">Aptitude Score (0-100)</label>
+                                <input type="number" class="form-control" name="aptitude_score" required min="0" max="100" value="80">
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">Attendance %</label>
+                                <input type="number" class="form-control" name="attendance" required min="0" max="100" value="85">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">Communication Skills (0-100)</label>
+                                <input type="number" class="form-control" name="communication" required min="0" max="100" value="70">
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">Behavior Rating (0-100)</label>
+                                <input type="number" class="form-control" name="behavior" required min="0" max="100" value="90">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">CGPA (0.0-10.0)</label>
+                                <input type="number" step="0.1" class="form-control" name="cgpa" required min="0" max="10" value="8.2">
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="mb-4">
+                            <label class="form-label text-muted small fw-bold">Upload Resume (PDF)</label>
+                            <input class="form-control" type="file" id="resume" name="resume" required accept=".pdf">
+                            <div class="form-text">Upload your resume to get career domain recommendations.</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-dark-green w-100 py-3 fw-bold rounded-3 fs-5">
+                            <i class="fas fa-magic me-2"></i> Predict & Analyze
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
