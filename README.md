@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI Career Guidance System
 
 This is a complete AI Career Guidance System built with Flask and Scikit-Learn.
@@ -58,3 +59,6 @@ ai_career_guidance/
 - **Student Form:** A form to collect Coding Skills, Aptitude, etc.
 - **AI Analytics Results:** Shows Resume Score, Placement Eligibility, Extracted Skills, and Recommended Career Domain (matches the requested result dashboard).
 - **Admin Dashboard:** Visualizes batches and student states using Chart.js.
+=======
+# ai_career_guidance
+>>>>>>> 1b5a9a6d79e2742d653067d393236845b5665b9b
